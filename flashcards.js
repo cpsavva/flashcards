@@ -1,44 +1,77 @@
 'use strict'
-
+//GLOBAL VARIALBLES
 const inquirer = require("inquirer");
-const addCards = require("./add.js");
-const reviewCards = require ("./review.js");
+const basicCards = require("./basic_constructor.js");
+const clozeCards = require("./cloze_constructor.js");
+// const reviewCards = require ("./review.js");
 
 
-inquirer.prompt ([
-	{
-		type: 'input',
-		message: 'Would you like to add or review your flashcards?',
-		name: 'add_review'
+//FUNCTIONS
+function initial(){
+
+	inquirer.prompt ([
+		{
+			type: 'input',
+			message: 'Would you like to add or review cards?',
+			name: 'add_review'
+		}
+		]).then(handleInit);
+
+};
+
+function handleInit(initAns){
+	// console.log('inital answer: ' + initAns.add_review)
+
+	switch (initAns.add_review){
+		case 'add':
+			typeCard();
+			break;
+
+		case 'review':
+			//review functions
+			break;
+
+		default:
+			console.log("Please try again")
 	}
-	]).then(function(user){
-	console.log(JSON.stringify(user, null, 2));
-	if (user = 'add'){
-		//run add text function from different file
-	}
-	if(user = 'review'){
-		//run review text function from different file
-	}
 
-	});
-	// {
-	// 	type: 'input',
-	// 	message: 'Please enter the text to display on the front of this card.',
-	// 	name: "front_text"
-	// }
-	// {
-	// 	type: 'input',
-	// 	message: 'Please enter the text to display on the back of this card.',
-	// 	name: 'back_text'
-	// }
-	// {
-	// 	type:'confirm',
-	// 	message: 'Would you like to enter another flashcard?',
-	// 	name: 'additional_card',
-	// 	default: true
-	// },
-	// {
+};
 
-	// }
+function typeCard (){
+	inquirer.prompt([
+		{
+			type: 'checkbox',
+			message: 'What type of card would you like to add?',
+			choices: ['basic', 'cloze'],
+			name: 'basic_cloze'
+		}
 
+		]).then(handleTypeCard);
+}
+
+function handleTypeCard(typeCardAns){
+	console.log('type of card answer: '+ typeCardAns.basic_cloze[0])
+
+
+	switch (typeCardAns.basic_cloze[0]){
+		case 'basic':
+			basicCards.basicCardInput();
+			break;
+
+		case 'cloze':
+			clozeCards.clozeCardInput();
+			break;
+
+		default:
+			console.log("I'm sorry, Please try again.")
+	};
+}
+
+
+
+
+///MAIN PROCESS
+
+initial();
+	
 
