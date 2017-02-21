@@ -18,6 +18,9 @@ function BasicCard (front, back){
 	this.back = back;
 
 	console.log( "front: " + this.front + " back: " + this.back + ",")
+		fs.appendFile("basicCard.json", "{front: " + this.front + ", back: " + this.back + "},", function(err){
+			if (err) console.log(err)
+		})
 	
 };
 
