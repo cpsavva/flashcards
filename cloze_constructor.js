@@ -32,6 +32,9 @@ function ClozeCard (cloze, full){
 	console.log('');
 	console.log('=============================');
 
+		fs.appendFile("clozeCard.json", "{full: " + this.full + ", cloze: " + this.cloze + ", partial: "+ this.partial + "},", function(err){
+			if (err) console.log(err)
+		})
 };
 
 // var newCloze = new ClozeCard(cloze, full);
