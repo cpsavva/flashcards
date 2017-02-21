@@ -10,17 +10,18 @@ const inquirer = require('inquirer');
 //BASIC CARD
 
 function BasicCard (front, back){
-	// if(! (this instanceof BasicCard)){
-	// 	return new BasicCard(front, back)
-	// }
+	if(! (this instanceof BasicCard)){
+		return new BasicCard(front, back)
+	}
 
 	this.front = front;
 	this.back = back;
 
 	console.log( "front: " + this.front + " back: " + this.back + ",")
+	
 };
 
-	var newCard = new BasicCard(info.front_text, info.back_textw4);
+	var newCard = new BasicCard(front, back);
 
 	BasicCard.prototype.append = function (){
 		fs.appendFile("basicCard.json", "{front: " + this.front + ", back: " + this.back + "},", function(err){
@@ -50,7 +51,7 @@ function basicCardInput (){
 }
 
 function handleInput (info){
-	newCard.append();
+	BasicCard(info.front_text, info.back_text);
 }
 
 

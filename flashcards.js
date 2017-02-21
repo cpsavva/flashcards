@@ -1,7 +1,8 @@
 'use strict'
 //GLOBAL VARIALBLES
 const inquirer = require("inquirer");
-const addCards = require("./card_constructors.js");
+const basicCards = require("./basic_constructor.js");
+const clozeCards = require("./cloze_constructor.js");
 // const reviewCards = require ("./review.js");
 
 
@@ -54,11 +55,11 @@ function handleTypeCard(typeCardAns){
 
 	switch (typeCardAns.basic_cloze[0]){
 		case 'basic':
-			addCards.basicCardInput();
+			basicCards.basicCardInput();
 			break;
 
 		case 'cloze':
-			addCards.clozeCardInput();
+			clozeCards.clozeCardInput();
 			break;
 
 		default:
