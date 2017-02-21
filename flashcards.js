@@ -20,7 +20,7 @@ function initial(){
 };
 
 function handleInit(initAns){
-	console.log('inital answer: ' + initAns.add_review)
+	// console.log('inital answer: ' + initAns.add_review)
 
 	switch (initAns.add_review){
 		case 'add':

@@ -21,13 +21,13 @@ function BasicCard (front, back){
 	
 };
 
-	var newCard = new BasicCard(front, back);
+	// var newCard = new BasicCard(front, back);
 
-	BasicCard.prototype.append = function (){
-		fs.appendFile("basicCard.json", "{front: " + this.front + ", back: " + this.back + "},", function(err){
-			if (err) console.log(err)
-		})
-	}
+	// BasicCard.prototype.append = function (){
+	// 	fs.appendFile("basicCard.json", "{front: " + this.front + ", back: " + this.back + "},", function(err){
+	// 		if (err) console.log(err)
+	// 	})
+	// }
 
 
 
@@ -51,7 +51,7 @@ function basicCardInput (){
 }
 
 function handleInput (info){
-	BasicCard(info.front_text, info.back_text);
+	new BasicCard(info.front_text, info.back_text)
 }
 
 
