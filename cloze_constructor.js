@@ -37,13 +37,13 @@ function ClozeCard (cloze, full){
 		})
 };
 
-// var newCloze = new ClozeCard(cloze, full);
+var newCloze = new ClozeCard(cloze, full);
 
-	// BasicCard.prototype.append = function (){
-	// 	fs.appendFile("ClozeCard.json", "{full: " + this.full + ", cloze: " + this.cloze + ", partial: "+ this.partial + "},", function(err){
-	// 		if (err) console.log(err)
-	// 	})
-	// }
+	ClozeCard.prototype.append = function (){
+		fs.appendFile("ClozeCard.json", "{full: " + this.full + ", cloze: " + this.cloze + ", partial: "+ this.partial + "},", function(err){
+			if (err) console.log(err)
+		})
+	}
 
 /* =======  MAIN PROCESS ========= */
 
@@ -67,6 +67,5 @@ function clozeCardInput(){
 function handleCloze(info){
 	new ClozeCard(info.cloze_text, info.full_text);
 }
-
 
 module.exports = {clozeCardInput}
